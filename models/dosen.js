@@ -14,6 +14,12 @@ module.exports = (sequelize, DataTypes) => {
                 as: 'matkul',
                 foreignKey: 'id_dosen',
             });
+
+            Dosen.belongsToMany(models.Mahasiswa, {
+                through: models.MahasiswaBimbingan,
+                as: 'mahasiswaBimbingan',
+                foreignKey: 'id_dosen',
+            });
         }
     }
     Dosen.init(
